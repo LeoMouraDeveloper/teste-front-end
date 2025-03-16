@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -80,7 +82,7 @@ export default function Products({ showCategories = true }: ProductsProps) {
         </div>
       )}
       <Slider products={products} onBuyClick={handleBuyClick} />
-
+      {/* Modal */}
       {selectedProduct && (
         <Modal
           isOpen={isModalOpen}

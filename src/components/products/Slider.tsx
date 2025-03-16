@@ -6,7 +6,7 @@ import { Navigation } from "swiper/modules";
 import LeftArrow from "../../assets/images/arrow-left.svg";
 import RightArrow from "../../assets/images/arrow-right.svg";
 import { useRef, useEffect, useState } from "react";
-import type { Swiper as SwiperType } from "swiper"; 
+import type { Swiper as SwiperType } from "swiper";
 
 interface Product {
   productName: string;
@@ -32,6 +32,7 @@ export default function Slider({ products, onBuyClick }: SliderProps) {
       prevRef.current &&
       nextRef.current
     ) {
+      
       if (typeof swiperInstance.params.navigation === "object") {
         swiperInstance.params.navigation.prevEl = prevRef.current;
         swiperInstance.params.navigation.nextEl = nextRef.current;
@@ -41,6 +42,7 @@ export default function Slider({ products, onBuyClick }: SliderProps) {
       swiperInstance.navigation.update();
     }
   }, [swiperInstance]);
+  
 
   return (
     <div className={styles.sliderWrapper}>
@@ -53,7 +55,7 @@ export default function Slider({ products, onBuyClick }: SliderProps) {
           modules={[Navigation]}
           spaceBetween={0}
           slidesPerView={4}
-          onSwiper={setSwiperInstance} 
+          onSwiper={setSwiperInstance} // Aqui continua funcionando corretamente
           breakpoints={{
             1280: { slidesPerView: 4, spaceBetween: 10 },
             1000: { slidesPerView: 3, spaceBetween: 20 },
